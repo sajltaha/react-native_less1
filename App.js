@@ -1,5 +1,14 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, TextInput, Modal, Button, TouchableOpacity, Pressable } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  Modal,
+  Button,
+  TouchableOpacity,
+  Pressable,
+} from "react-native";
 
 const App = () => {
   const [text, setText] = useState("");
@@ -17,7 +26,7 @@ const App = () => {
 
   const handleButtonHide = () => {
     setModalVisible(!modalVisible);
-    setText("")
+    setText("");
   };
 
   return (
@@ -26,6 +35,7 @@ const App = () => {
         <Text>Sign In</Text>
         <View style={styles.section}>
           <TextInput
+            value={text}
             style={styles.input}
             placeholder="Text"
             onChangeText={handleInputChange}
@@ -49,7 +59,7 @@ const App = () => {
             <Text style={styles.modalText}>{text}</Text>
             <Pressable
               style={[styles.button, styles.buttonClose]}
-              onPress={handleButtonHide}
+              onPress={() => handleButtonHide()}
             >
               <Text style={styles.textStyle}>Hide Modal</Text>
             </Pressable>
